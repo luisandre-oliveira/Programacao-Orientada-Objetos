@@ -1,0 +1,21 @@
+#BlueJ class context
+comment0.target=Hub
+comment0.text=\r\n\ Escreva\ uma\ descri\u00E7\u00E3o\ da\ classe\ Hub\ aqui.\r\n\ \r\n\ @author\ (seu\ nome)\ \r\n\ @version\ (um\ n\u00FAmero\ da\ vers\u00E3o\ ou\ uma\ data)\r\n
+comment1.params=n\ r
+comment1.target=Hub(java.lang.String,\ boolean)
+comment1.text=\r\n\ Construtor\ para\ objetos\ da\ classe\ Hub\r\n
+comment2.params=
+comment2.target=java.lang.String\ getNome()
+comment3.params=
+comment3.target=boolean\ getRefrig()
+comment4.params=
+comment4.target=java.util.List\ getLigacoes()
+comment5.params=l
+comment5.target=void\ add(Localizacao)
+comment6.params=
+comment6.target=int\ numero_servicos()
+comment7.params=o
+comment7.target=boolean\ equals(Hub)
+comment8.params=
+comment8.target=Hub\ clone()
+numComments=9
