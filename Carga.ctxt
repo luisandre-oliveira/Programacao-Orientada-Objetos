@@ -18,4 +18,6 @@ comment7.params=
 comment7.target=double\ preco()
 comment8.params=
 comment8.target=Carga\ clone()
-numComments=9
+comment9.params=
+comment9.target=int\ tipo()
+numComments=10

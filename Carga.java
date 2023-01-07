@@ -42,4 +42,5 @@ public abstract class Carga
     public abstract double consumo();
     public abstract double preco();
     public abstract Carga clone();
+    public abstract int tipo();
 }
