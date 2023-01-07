@@ -18,7 +18,9 @@ public class Esporadico extends Cliente
         // inicializa variáveis de instância
         super(nif,n,e);
     }
-
+    public double desconto(){
+        return 0.0;
+    }
     public Esporadico clone()
     {   return new Esporadico(super.getNIF(), super.getNome(), super.getEndereco());
     }
