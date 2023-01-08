@@ -4,9 +4,9 @@ public class Camiao {
 
     private String matricula;
     private int cubicagem;
-    //TODO private Localizacao localizacao;
-    //TODO private ArrayList<Servico> historico;
-    //TODO private ArrayList<Servico> servico_atual;
+    private Localizacao localizacao;
+    private ArrayList<Servico> historico;
+    private ArrayList<Servico> servico_atual;
 
     public Camiao(String m, int c) {
         this.matricula = m;
