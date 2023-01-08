@@ -8,7 +8,7 @@
 public class Frequente extends Cliente
 {
     // variáveis de instância - substitua o exemplo abaixo pelo seu própri
-    private int volume;
+    private int negocios;
     /**
      * Construtor para objetos da classe Frequente
      */
@@ -19,7 +19,7 @@ public class Frequente extends Cliente
         this.volume=v;
     }
     public double desconto(){
-        return this.volume*Tabela.desconto(volume/100);
+        return this.negocios*Tabela.desconto(volume/100);
     }
     public Frequente clone()
     {   return new Frequente(super.getNIF(), super.getNome(), super.getEndereco(),this.volume);
