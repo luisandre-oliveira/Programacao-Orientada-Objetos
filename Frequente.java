@@ -12,14 +12,14 @@ public class Frequente extends Cliente
     /**
      * Construtor para objetos da classe Frequente
      */
-    public Frequente(int nif, String n, String e,int n)
+    public Frequente(int nif, String n, String e,int neg)
     {
         // inicializa variáveis de instância
         super(nif,n,e);
-        this.negocios=n;
+        this.negocios=neg;
     }
     public double desconto(){
-        return this.negocios*Tabela.desconto(volume/100);
+        return this.negocios*Tabela.desconto(negocios/100);
     }
     public Frequente clone()
     {   return new Frequente(super.getNIF(), super.getNome(), super.getEndereco(),this.negocios);
