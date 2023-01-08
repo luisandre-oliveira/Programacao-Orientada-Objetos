@@ -5,8 +5,8 @@ public class Servico {
     private int nif_cliente;
     private GregorianCalendar data_pedido;
 
-    //TODO private Localizacao origem;
-    //TODO private Localizacao destino;
+    private Localizacao origem;
+    private Localizacao destino;
 
     public Servico(int c, int nc, int y, int m, int d)
     {
