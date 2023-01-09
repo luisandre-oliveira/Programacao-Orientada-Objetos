@@ -21,6 +21,7 @@ public class Menu
             System.out.println("3 - Camioes ");
             System.out.println("4 - Hubs ");
             System.out.println("0 - Quit ");
+            
             System.out.print("\nMenu a visitar: ");
             op = key.nextInt();
         
@@ -70,6 +71,7 @@ public class Menu
                 System.out.println("1 - Emitir fatura de um servico");
                 System.out.println("2 - Informacao de cliente");
                 System.out.println("0 - Voltar ");
+                
                 System.out.print("\nMenu a visitar: ");
                 op = key.nextInt();
                 
@@ -172,6 +174,7 @@ public class Menu
             System.out.println("2 - Informacao de camiao");
             System.out.println("3 - Verificar disponibilidade");
             System.out.println("0 - Voltar ");
+            
             System.out.print("\nMenu a visitar: ");
             op = key.nextInt();
             
