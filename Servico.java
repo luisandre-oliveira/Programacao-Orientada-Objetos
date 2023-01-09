@@ -3,7 +3,10 @@ import java.util.GregorianCalendar;
 public class Servico {
     private int codigo;
     private int nif_cliente;
+    private Camiao truck;
+    private Carga load;
     private GregorianCalendar data_pedido;
+    private GregorianCalendar data_chegada;
 
     private Localizacao origem;
     private Localizacao destino;
@@ -32,4 +35,10 @@ public class Servico {
 
     public void setData_pedido(int y, int m, int d)
     {   this.data_pedido = new GregorianCalendar(y,m+1,d);}
+    
+    public GregorianCalendar getData_chegada()
+    {   return this.data_chegada;}
+
+    public void setData_chegada(int y, int m, int d)
+    {   this.data_chegada = new GregorianCalendar(y,m+1,d);}
 }

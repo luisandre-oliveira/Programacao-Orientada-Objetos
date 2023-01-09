@@ -1,0 +1,17 @@
+#BlueJ class context
+comment0.target=Camiao
+comment1.params=m\ c
+comment1.target=Camiao(java.lang.String,\ int)
+comment2.params=
+comment2.target=java.lang.String\ getMatricula()
+comment3.params=m
+comment3.target=void\ setMatricula(java.lang.String)
+comment4.params=
+comment4.target=int\ getCubicagem()
+comment5.params=c
+comment5.target=void\ setCubicagem(int)
+comment6.params=
+comment6.target=Camiao\ clone()
+comment7.params=c
+comment7.target=boolean\ equals(Camiao)
+numComments=8
