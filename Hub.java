@@ -23,7 +23,7 @@ public class Hub
         // inicializa variáveis de instância
         this.nome = n;
         this.refrig = r;
-        this.ligacoes = new ArrayList<Localizacao>();
+        this.ligacoes = new ArrayList<String>();
         this.local = new Localizacao();
     }
     
@@ -35,8 +35,8 @@ public class Hub
         return this.refrig;
     }
     
-    public List<Localizacao> getLigacoes(){
-        ArrayList<Localizacao>temp = new ArrayList <Localizacao>();
+    public List<String> getLigacoes(){
+        ArrayList<String>temp = new ArrayList <String>();
         
         for(Localizacao l:this.ligacoes)
             temp.add(l);
@@ -57,7 +57,7 @@ public class Hub
     }
     
     //Adicionar nova ligacao
-    public void add(Localizacao l){
+    public void add(String l){
         this.ligacoes.add(l);
     }
     
@@ -74,7 +74,7 @@ public class Hub
     
     public Hub clone(){
         Hub h = new Hub(this.nome,this.refrig);
-        for(Localizacao l:this.ligacoes)
+        for(String l:this.ligacoes)
             h.add(l);
         return h;
     }
