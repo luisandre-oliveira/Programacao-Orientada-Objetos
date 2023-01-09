@@ -1,0 +1,26 @@
+#BlueJ class context
+comment0.target=Menu
+comment1.params=
+comment1.target=Menu()
+comment10.params=casa
+comment10.target=void\ MenuCamioesInfo(Empresa)
+comment11.params=casa
+comment11.target=int\ menuHubs(Empresa)
+comment11.text=\r\n\ \ \ \ public\ ArrayList<Camiao>\ MenuCamioesDisponibilidade(Empresa\ casa)\r\n\ \ \ \ {\r\n\ \ \ \ \ \ \ \ \r\n\ \ \ \ }\ \r\n
+comment2.params=casa
+comment2.target=Empresa\ MenuPrincipal(Empresa)
+comment3.params=casa
+comment3.target=void\ MenuLogin(Empresa)
+comment4.params=casa\ nif
+comment4.target=void\ MenuLoginFatura(Empresa,\ int)
+comment5.params=casa
+comment5.target=Empresa\ MenuCliente(Empresa)
+comment6.params=casa
+comment6.target=Empresa\ MenuClienteAddCliente(Empresa)
+comment7.params=casa
+comment7.target=void\ MenuClienteInfo(Empresa)
+comment8.params=casa
+comment8.target=int\ MenuCamioes(Empresa)
+comment9.params=casa
+comment9.target=Empresa\ MenuCamioesAddCamiao(Empresa)
+numComments=12
