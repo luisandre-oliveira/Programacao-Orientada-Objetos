@@ -8,7 +8,6 @@
 public class Esporadico extends Cliente
 {
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
-    private int x;
 
     /**
      * Construtor para objetos da classe Esporadico

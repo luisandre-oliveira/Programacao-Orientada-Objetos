@@ -12,7 +12,7 @@ import java.util.HashMap;
 public class Empresa
 {
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
-    private Map<String,Cliente> listaCliente;
+    private Map<Integer,Cliente> listaCliente;
     private Map<String,Camiao> listaCamiao;
     private Map<String,Hub> listaHub;
 
@@ -22,7 +22,7 @@ public class Empresa
     public Empresa()
     {
         // inicializa variáveis de instância
-        this.listaCliente = new HashMap<String,Cliente>();
+        this.listaCliente = new HashMap<Integer,Cliente>();
         this.listaCamiao = new HashMap<String,Camiao>();
         this.listaHub = new HashMap<String,Hub>();
     }
@@ -31,7 +31,7 @@ public class Empresa
     
     public void addCliente(Cliente c)
     {
-        this.listaCliente.put(String.valueOf(c.getNIF()),c.clone());
+        this.listaCliente.put(c.getNIF(),c.clone());
     }
     
     public Cliente findCliente(int nif)

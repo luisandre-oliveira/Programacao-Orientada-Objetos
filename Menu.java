@@ -64,8 +64,8 @@ public class Menu
         
         if(casa.findCliente(nif) != null)
         {
-            System.out.print("\nMenu a visitar: ");
-            op = key.nextInt();
+            
+            
             
             while(op!=0)
             {
@@ -73,6 +73,8 @@ public class Menu
                 System.out.println("1 - Emitir fatura de um servico");
                 System.out.println("2 - Informacao de cliente");
                 System.out.println("0 - Voltar ");
+                System.out.print("\nMenu a visitar: ");
+                op = key.nextInt();
                 
                 switch(op)
                 {
@@ -129,12 +131,12 @@ public class Menu
     
     public Empresa MenuClienteAddCliente(Empresa casa)
     {
-        System.out.print("Indique o nome  do novo cliente: ");
-        String nome = key.nextLine();
+        System.out.print("Indique o nome do novo cliente: ");
+        String nome = key.next();
         System.out.print("Indique o NIF: ");
         int nif = key.nextInt();
         System.out.print("Indique o endereco: ");
-        String endereco = key.nextLine();
+        String endereco = key.next();
         
         if(casa.findCliente(nif) == null)
         {
