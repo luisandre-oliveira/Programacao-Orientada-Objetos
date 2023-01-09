@@ -21,6 +21,9 @@ public class Frequente extends Cliente
     public double desconto(){
         return this.negocios*Tabela.desconto(negocios/100);
     }
+    public int getNegocios(){
+        return this.negocios;
+    }
     public Frequente clone()
     {   return new Frequente(super.getNIF(), super.getNome(), super.getEndereco(),this.negocios);
     }
