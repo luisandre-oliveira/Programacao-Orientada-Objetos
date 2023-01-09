@@ -64,9 +64,6 @@ public class Menu
         
         if(casa.findCliente(nif) != null)
         {
-            
-            
-            
             while(op!=0)
             {
                 System.out.println("\n-- Menu --");
@@ -169,14 +166,14 @@ public class Menu
         
         while(op!=0)
         {
-            System.out.print("\nMenu a visitar: ");
-            op = key.nextInt();
             
             System.out.println("\n-- Menu --");
             System.out.println("1 - Adicionar camiao");
             System.out.println("2 - Informacao de camiao");
             System.out.println("3 - Verificar disponibilidade");
             System.out.println("0 - Voltar ");
+            System.out.print("\nMenu a visitar: ");
+            op = key.nextInt();
             
             switch(op)
             {
@@ -199,7 +196,7 @@ public class Menu
     public Empresa MenuCamioesAddCamiao(Empresa casa)
     {
         System.out.print("Indique a matricula do camiao novo: ");
-        String mat = key.nextLine();
+        String mat = key.next();
         System.out.print("Indique a cubicagem: ");
         int cub = key.nextInt();
         
@@ -216,8 +213,8 @@ public class Menu
     
     public void MenuCamioesInfo(Empresa casa)
     {
-        System.out.println("Indique a matricula do camiao novo: ");
-        String mat = key.nextLine();
+        System.out.println("Indique a matricula do camiao: ");
+        String mat = key.next();
         
         Camiao c = casa.findCamiao(mat);
         
@@ -234,7 +231,7 @@ public class Menu
     } 
     */
     
-    public int menuHubs(Empresa casa)
+    public int MenuHubs(Empresa casa)
     {
         int op = -1;
         
@@ -242,9 +239,9 @@ public class Menu
         {
             System.out.println("\n-- Menu --");
             System.out.println("1 - Verificar disponibilidade");
+            System.out.println("0 - Voltar ");
             
             System.out.print("\nMenu a visitar: ");
-            System.out.println("0 - Voltar ");
             op = key.nextInt();
             
             switch(op)

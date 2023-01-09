@@ -42,4 +42,9 @@ public class Servico {
     public void setData_chegada(int y, int m, int d)
     {   this.data_chegada = new GregorianCalendar(y,m+1,d);}
     
+    public GregorianCalendar TempoChegada(double dist,GregorianCalendar tempo_partida,int vel){
+        int h = (int)dist*vel;
+        tempo_partida.add(GregorianCalendar.HOUR_OF_DAY, h);
+        return tempo_partida;
+    }
 }

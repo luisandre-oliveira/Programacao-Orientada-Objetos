@@ -2,6 +2,8 @@
 comment0.target=Servico
 comment1.params=c\ nc\ y\ m\ d
 comment1.target=Servico(int,\ int,\ int,\ int,\ int)
+comment10.params=dist\ tempo_partida\ vel
+comment10.target=java.util.GregorianCalendar\ TempoChegada(double,\ java.util.GregorianCalendar,\ int)
 comment2.params=
 comment2.target=int\ getCodigo()
 comment3.params=c
@@ -18,4 +20,4 @@ comment8.params=
 comment8.target=java.util.GregorianCalendar\ getData_chegada()
 comment9.params=y\ m\ d
 comment9.target=void\ setData_chegada(int,\ int,\ int)
-numComments=10
+numComments=11
