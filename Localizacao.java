@@ -32,4 +32,7 @@ public class Localizacao
     
     public void setLongitude(int lon)
     {   this.lon = lon;}
+    
+    public double getDistancia(Localizacao a,Localizacao b)
+    {   return Math.sqrt(Math.pow(b.lat - a.lat, 2) + Math.pow(b.lon - a.lon, 2));}
 }
