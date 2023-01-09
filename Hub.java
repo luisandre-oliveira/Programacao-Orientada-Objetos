@@ -12,7 +12,7 @@ public class Hub
     private String nome;
     private boolean refrig;
     
-    private List<Localizacao> ligacoes;
+    private List<String> ligacoes;
     private Localizacao local;
     
     /**
@@ -38,7 +38,7 @@ public class Hub
     public List<String> getLigacoes(){
         ArrayList<String>temp = new ArrayList <String>();
         
-        for(Localizacao l:this.ligacoes)
+        for(String l:this.ligacoes)
             temp.add(l);
             
         return temp;
