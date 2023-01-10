@@ -12,19 +12,19 @@ public class Hub
     private String nome;
     private boolean refrig;
     
-    private List<String> ligacoes;
+    private Map<String,Integer> ligacoes;
     private Localizacao local;
     
     /**
      * Construtor para objetos da classe Hub
      */
-    public Hub(String n,boolean r)
+    public Hub(String n,boolean r,int lat,int lon)
     {
         // inicializa variáveis de instância
         this.nome = n;
         this.refrig = r;
-        this.ligacoes = new ArrayList<String>();
-        this.local = new Localizacao();
+        this.ligacoes = new HashMap<String,Integer>();
+        this.local = new Localizacao(lat,lon);
     }
     
     public String getNome(){
@@ -35,11 +35,11 @@ public class Hub
         return this.refrig;
     }
     
-    public List<String> getLigacoes(){
-        ArrayList<String>temp = new ArrayList <String>();
+    public Map<String,Integer> getLigacoes(){
+        HashMap<String,Integer>temp = new HashMap<String,Integer>();
         
-        for(String l:this.ligacoes)
-            temp.add(l);
+        for(String l:this.ligacoes.keySet())
+            temp.put(l,this.ligacoes.get(l));
             
         return temp;
     }
@@ -57,8 +57,8 @@ public class Hub
     }
     
     //Adicionar nova ligacao
-    public void add(String l){
-        this.ligacoes.add(l);
+    public void add(String l,int d){
+        this.ligacoes.put(l,d);
     }
     
     public int numero_servicos(){
@@ -73,9 +73,9 @@ public class Hub
     }
     
     public Hub clone(){
-        Hub h = new Hub(this.nome,this.refrig);
-        for(String l:this.ligacoes)
-            h.add(l);
+        Hub h = new Hub(this.nome,this.refrig,this.local.lat,this.local.lon);
+        for(String l:this.ligacoes.keySet())
+            h.add(l,this.ligacoes.get(l));
         return h;
     }
 }

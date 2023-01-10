@@ -8,17 +8,17 @@
 public class Localizacao
 {
     // variáveis de instância - substitua o exemplo abaixo pelo seu próprio
-    private int lat;
-    private int lon;
+    public int lat;
+    public int lon;
 
     /**
      * Construtor para objetos da classe Localizacao
      */
-    public Localizacao()
+    public Localizacao(int lat, int lon)
     {
         // inicializa variáveis de instância
-        lat = 0;
-        lon = 0;
+        this.lat = lat;
+        this.lon = lon;
     }
 
     public int getLatitude()

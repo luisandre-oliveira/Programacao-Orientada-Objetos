@@ -202,10 +202,14 @@ public class Menu
         String mat = key.next();
         System.out.print("Indique a cubicagem: ");
         int cub = key.nextInt();
+        System.out.print("\nLatitude do Hub:");
+        int lat = key.nextInt();
+        System.out.print("\nLongitude do Hub:");
+        int lon = key.nextInt();
         
         if(casa.findCamiao(mat) == null)
         {
-            Camiao temp = new Camiao(mat,cub);
+            Camiao temp = new Camiao(mat,cub,lat,lon);
             casa.addCamiao(temp);
         }
         else
@@ -241,7 +245,9 @@ public class Menu
         while(op!=0)
         {
             System.out.println("\n-- Menu --");
-            System.out.println("1 - Verificar disponibilidade");
+            System.out.println("1 -Adicionar Hub");
+            System.out.println("2 -Ver Hub");
+            System.out.println("3 -Adicionar Ligação");
             System.out.println("0 - Voltar ");
             
             System.out.print("\nMenu a visitar: ");
@@ -263,5 +269,49 @@ public class Menu
             }
         }
        return op;
+    }
+    
+    public void MenuHubsAddHub(Empresa casa)
+    {
+        System.out.print("\nIndique a cidade do Hub: ");
+        String nome = key.next();
+        int lat,lon;
+        Boolean ref = true;
+        if(casa.findHub(nome)==null){
+            String op = "0";
+            
+            while(op == "0"){
+                System.out.print("\nRefrigeração(y/n): ");
+                op = key.next();
+                    switch(op)
+                    {
+                        case "y":
+                            ref = true;
+                            break;
+                        case "n":
+                            ref = false;
+                            break;
+                        default:
+                            op = "0";
+                        
+                    }
+            }
+            
+            System.out.print("\nLatitude do Hub:");
+            lat = key.nextInt();
+            System.out.print("\nLongitude do Hub:");
+            lon = key.nextInt();
+            
+            Hub temp = new Hub(nome,ref,lat,lon);
+            casa.addHub(temp);
+            
+            while(op != "0"){
+                System.out.print("\nIndique uma ligação do Hub (termine com \"0\"): ");
+                
+            }
+        }else{
+            System.out.println("\nJá existe um Hub nesta cidade.");
+        }
+        
     }
 }

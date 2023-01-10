@@ -8,9 +8,10 @@ public class Camiao {
     private ArrayList<Servico> historico;
     private ArrayList<Servico> servico_atual;
 
-    public Camiao(String m, int c) {
+    public Camiao(String m, int c,int lat,int lon) {
         this.matricula = m;
         this.cubicagem = c;
+        this.localizacao = new Localizacao(lat,lon);
     }
 
     public String getMatricula()
@@ -26,7 +27,7 @@ public class Camiao {
     {   this.cubicagem = c;}
 
     public Camiao clone()
-    {   return new Camiao(this.getMatricula(), this.getCubicagem());}
+    {   return new Camiao(this.getMatricula(), this.getCubicagem(),this.localizacao.lat,this.localizacao.lon);}
 
     public boolean equals(Camiao c)
     {
