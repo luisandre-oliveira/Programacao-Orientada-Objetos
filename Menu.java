@@ -292,10 +292,10 @@ public class Menu
                     MenuHubsAddHub(casa);
                     break;
                 case 2:
-                    //MenuHubsAddHub(casa);
+                    MenuHubsInfoHub(casa);
                     break;
                 case 3:
-                    //MenuCamioesInfo(casa);
+                    MenuHubsAddLigacao(casa);
                     break;
             }
         }
@@ -309,21 +309,21 @@ public class Menu
         int lat,lon;
         Boolean ref = true;
         if(casa.findHub(nome)==null){
-            String op = "0";
+            int op = -1;
             
-            while(op == "0"){
+            while(op != 0 && op != 1){
                 System.out.print("\nRefrigeração(y/n): ");
-                op = key.next();
+                op = key.nextInt();
                     switch(op)
                     {
-                        case "y":
+                        case 1:
                             ref = true;
                             break;
-                        case "n":
+                        case 0:
                             ref = false;
                             break;
                         default:
-                            op = "0";
+                            break;
                         
                     }
             }
@@ -335,16 +335,20 @@ public class Menu
             
             Hub temp = new Hub(nome,ref,lat,lon);
             
-            while(op != "0"){
-                System.out.print("\nIndique uma ligação do Hub (termine com \"0\"): ");
+            System.out.print("\nAdicionar Ligações?(0 para não): ");
+            op = key.nextInt();
+            while(op != 0){
+                System.out.print("\nIndique uma ligação do Hub (termine com \"Termina\"): ");
                 nome = key.next();
-                Hub liga = casa.findHub(nome);
-                Localizacao local2 = liga.getLocal();
                 
+                Hub liga = casa.findHub(nome);
                 if(liga != null){
+                    Localizacao local2 = liga.getLocal();
                     double d = Math.sqrt(Math.pow(local2.lat - lat, 2) + Math.pow(local2.lon - lon, 2));
                     temp.add(nome,(int)d);
                 }
+                System.out.print("\nAdicionar Ligações?(0 para não): ");
+                op = key.nextInt();
             }
             
             
@@ -356,6 +360,43 @@ public class Menu
     }
     
     public void MenuHubsInfoHub(Empresa casa){
-        
+        System.out.print("\nIndique a cidade do Hub: ");
+        String nome = key.next();
+        Hub temp = casa.findHub(nome);
+        if(temp != null){
+            System.out.print("\nCidade do Hub: ");
+            System.out.println(temp.getNome());
+            if(temp.getRefrig()){
+                System.out.println("Refrigeração");
+            }
+            Localizacao local = temp.getLocal();
+            System.out.print("Latitude: ");
+            System.out.println(local.lat);
+            System.out.print("Longitude: ");
+            System.out.println(local.lon);
+        }else{
+            System.out.println("Não existe um Hub nesta cidade");
+        }
+    }
+    
+    public void MenuHubsAddLigacao(Empresa casa){
+        System.out.print("\nIndique a cidade do Hub: ");
+        String nome = key.next();
+        Hub temp = casa.findHub(nome);
+        if(temp != null){
+            System.out.print("\nIndique a cidade da Ligação: ");
+            String nome2 = key.next();
+            Hub lig = casa.findHub(nome2);
+            if(lig != null){
+                Localizacao local1 = temp.getLocal();
+                Localizacao local2 = lig.getLocal();
+                double d = Math.sqrt(Math.pow(local2.lat - local1.lat, 2) + Math.pow(local2.lon - local1.lon, 2));
+                temp.add(nome2,(int)d);
+            }else{
+                System.out.println("Não existe um Hub nesta cidade");
+            }
+        }else{
+            System.out.println("Não existe um Hub nesta cidade");
+        }
     }
 }

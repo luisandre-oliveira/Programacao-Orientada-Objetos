@@ -27,7 +27,9 @@ public class Camiao {
     {   this.cubicagem = c;}
 
     public int getSizeServicoAtual(){
-        return this.servico_atual.size();
+        if(this.servico_atual==null){
+            return 0;
+        }else{return this.servico_atual.size();}
     }
     
     public Camiao clone()
