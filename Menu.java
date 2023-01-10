@@ -70,6 +70,7 @@ public class Menu
                 System.out.println("\n-- Menu --");
                 System.out.println("1 - Emitir fatura de um servico");
                 System.out.println("2 - Informacao de cliente");
+                System.out.println("3 - Adicionar um servico");
                 System.out.println("0 - Voltar ");
                 
                 System.out.print("\nMenu a visitar: ");
@@ -82,8 +83,18 @@ public class Menu
                     case 1:
                         MenuLoginFatura(casa,nif);
                         break;
+                    case 2:
+                        MenuLoginInfo(casa,nif);
+                        break;
+                    case 3:
+                        MenuLoginAddServico(casa,nif);
+                        break;
                 }
             }
+        }
+        else
+        {
+            System.out.println("NIF de cliente não existe");
         }
     }
     
@@ -109,10 +120,62 @@ public class Menu
 
         System.out.println("Nome: " + casa.findCliente(nif).getNome());
         System.out.println("NIF: " + nif);
-        System.out.println("Data Pedido: " + dataP);
-        System.out.println("Data Chegada: " + dataC);
+        
+        int dia = dataP.get(Calendar.DATE);
+        int mes = dataP.get(Calendar.MONTH) + 1;
+        int ano = dataP.get(Calendar.YEAR);
+        
+        System.out.println("Data Pedido: " + dia + " " + mes + " " + ano);
+        
+        dia = dataC.get(Calendar.DATE);
+        mes = dataC.get(Calendar.MONTH) + 1;
+        ano = dataC.get(Calendar.YEAR);
+        
+        System.out.println("Data Chegada: " + dia + " " + mes + " " + ano);
         System.out.println("Valor: " + preco);
 
+    }
+    
+    public void MenuLoginInfo(Empresa casa, int nif)
+    {
+        if(casa.findCliente(nif) != null)
+        {
+            System.out.println("NIF: " + nif);
+            System.out.println("Nome: " + casa.findCliente(nif).getNome());
+            System.out.println("Endereco: " + casa.findCliente(nif).getEndereco());
+        }
+        else{System.out.println("\nErro : o utilizador com o NIF " + nif + " nao existe");}
+    }
+    
+    public Empresa MenuLoginAddServico(Empresa casa,int nif)
+    {
+        int size = casa.findCliente(nif).numero_servicos();
+
+        int codigo = Integer.valueOf(String.valueOf(nif) + String.valueOf(size));
+
+        System.out.print("Introduza a cubicagem minima: ");
+        int cub = key.nextInt();
+
+        System.out.print("Introduza o dia de hoje: ");
+        int dia = key.nextInt();
+
+        System.out.print("Introduza o mês: ");
+        int mes = key.nextInt();
+
+        System.out.print("Introduza o ano: ");
+        int ano = key.nextInt();
+
+        ArrayList <Camiao> lista = MenuCamioesDisponibilidade(casa);
+
+        for(Camiao cam:lista)
+        {
+            if(cam.getCubicagem() > cub)
+            {
+                 Servico s = new Servico(codigo,nif,ano,mes,dia);
+            }
+        }
+
+        return casa;
     }
     
     
