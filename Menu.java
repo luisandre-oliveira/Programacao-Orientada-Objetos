@@ -43,7 +43,7 @@ public class Menu
                     break;
                     
                 case 4:
-                    //MenuHubs(casa);
+                    MenuHubs(casa);
                     break;
                 
                 default:
@@ -292,7 +292,7 @@ public class Menu
                     MenuHubsAddHub(casa);
                     break;
                 case 2:
-                    //MenuCamioesAddCamiao(casa);
+                    //MenuHubsAddHub(casa);
                     break;
                 case 3:
                     //MenuCamioesInfo(casa);
