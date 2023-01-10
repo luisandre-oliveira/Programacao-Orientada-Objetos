@@ -5,6 +5,7 @@ public class Servico {
     private int nif_cliente;
     private Camiao truck;
     private Carga load;
+    private double preco;
     private GregorianCalendar data_pedido;
     private GregorianCalendar data_chegada;
 
@@ -30,6 +31,12 @@ public class Servico {
     public void setNif_cliente(int nc)
     {   this.nif_cliente = nc;}
 
+    public double getPreco()
+    {   return this.load.preco(); }
+    
+    public int getTipo()
+    {   return this.load.tipo();}
+    
     public GregorianCalendar getData_pedido()
     {   return this.data_pedido;}
 

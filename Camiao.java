@@ -26,6 +26,10 @@ public class Camiao {
     public void setCubicagem(int c)
     {   this.cubicagem = c;}
 
+    public int getSizeServicoAtual(){
+        return this.servico_atual.size();
+    }
+    
     public Camiao clone()
     {   return new Camiao(this.getMatricula(), this.getCubicagem(),this.localizacao.lat,this.localizacao.lon);}
 

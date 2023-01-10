@@ -83,6 +83,16 @@ public class Empresa
         {   return null;}
     }
     
+    public ArrayList<Camiao> getListaCamiao()
+    {
+        ArrayList<Camiao> temp = new ArrayList<Camiao> ();
+
+        for(Camiao c:this.listaCamiao.values())
+            temp.add(c);
+
+        return temp;
+    }
+    
     //HUB
     
     public void addHub(Hub h){
