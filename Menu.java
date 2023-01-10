@@ -87,17 +87,34 @@ public class Menu
         }
     }
     
+    
     public void MenuLoginFatura(Empresa casa, int nif)
     {
         System.out.print("Introduza o codigo do servico: ");
         int codigo = key.nextInt();
-        
-        String nome = casa.findCliente(nif).getNome();
-        
-        /*for(Servico s:casa.findCliente(nif).getLista())
+
+        GregorianCalendar dataP = new GregorianCalendar();
+        GregorianCalendar dataC = new GregorianCalendar();
+        double preco = 0;
+        int tipo = 0;
+
+        for(Servico s:casa.findCliente(nif).getLista())
             if(s.getCodigo() == codigo)
-                Carga c = s.get */
+            {
+                preco = s.getPreco();
+                tipo = s.getTipo();
+                dataP = s.getData_pedido();
+                dataC = s.getData_chegada();
+            }
+
+        System.out.println("Nome: " + casa.findCliente(nif).getNome());
+        System.out.println("NIF: " + nif);
+        System.out.println("Data Pedido: " + dataP);
+        System.out.println("Data Chegada: " + dataC);
+        System.out.println("Valor: " + preco);
+
     }
+    
     
     public Empresa MenuCliente(Empresa casa)
     {
@@ -189,7 +206,12 @@ public class Menu
                     MenuCamioesInfo(casa);
                     break;
                 case 3:
-                    //MenuCamioesDisponibilidade(casa);
+                    ArrayList<Camiao> temp = new ArrayList<Camiao>();
+                    temp = MenuCamioesDisponibilidade(casa);
+                    
+                    for(Camiao c:temp){
+                        System.out.println(c.getMatricula());
+                    }
                     break;
             }
         }
@@ -231,12 +253,21 @@ public class Menu
         {   System.out.println("Camiao "); }
     }
     
-    /*
+    
     public ArrayList<Camiao> MenuCamioesDisponibilidade(Empresa casa)
     {
+        ArrayList<Camiao> temp = new ArrayList<Camiao>();
         
+        
+        for(Camiao c:casa.getListaCamiao()){
+            if(c.getSizeServicoAtual()==0){
+                temp.add(c);
+            }
+        }  
+        
+        return temp;
     } 
-    */
+    
     
     public int MenuHubs(Empresa casa)
     {
@@ -258,7 +289,7 @@ public class Menu
                 case 0:
                     break;
                 case 1:
-                    //MenuCamioesDisponibilidade(casa);
+                    MenuHubsAddHub(casa);
                     break;
                 case 2:
                     //MenuCamioesAddCamiao(casa);
@@ -303,15 +334,28 @@ public class Menu
             lon = key.nextInt();
             
             Hub temp = new Hub(nome,ref,lat,lon);
-            casa.addHub(temp);
             
             while(op != "0"){
                 System.out.print("\nIndique uma ligação do Hub (termine com \"0\"): ");
+                nome = key.next();
+                Hub liga = casa.findHub(nome);
+                Localizacao local2 = liga.getLocal();
                 
+                if(liga != null){
+                    double d = Math.sqrt(Math.pow(local2.lat - lat, 2) + Math.pow(local2.lon - lon, 2));
+                    temp.add(nome,(int)d);
+                }
             }
+            
+            
+            casa.addHub(temp);
         }else{
             System.out.println("\nJá existe um Hub nesta cidade.");
         }
+        
+    }
+    
+    public void MenuHubsInfoHub(Empresa casa){
         
     }
 }
